@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpp-virtual-machine-cpu-8bit", "cpp-virtual-machine-cpu-8bit\cpp-virtual-machine-cpu-8bit.vcxproj", "{FA55046D-348E-45B2-AE51-69A1BE69050F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA55046D-348E-45B2-AE51-69A1BE69050F}.Debug|x64.ActiveCfg = Debug|x64
+		{FA55046D-348E-45B2-AE51-69A1BE69050F}.Debug|x64.Build.0 = Debug|x64
+		{FA55046D-348E-45B2-AE51-69A1BE69050F}.Debug|x86.ActiveCfg = Debug|Win32
+		{FA55046D-348E-45B2-AE51-69A1BE69050F}.Debug|x86.Build.0 = Debug|Win32
+		{FA55046D-348E-45B2-AE51-69A1BE69050F}.Release|x64.ActiveCfg = Release|x64
+		{FA55046D-348E-45B2-AE51-69A1BE69050F}.Release|x64.Build.0 = Release|x64
+		{FA55046D-348E-45B2-AE51-69A1BE69050F}.Release|x86.ActiveCfg = Release|Win32
+		{FA55046D-348E-45B2-AE51-69A1BE69050F}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D531DB56-7B08-4B2B-B59D-6252DEE1F647}
+	EndGlobalSection
+EndGlobal

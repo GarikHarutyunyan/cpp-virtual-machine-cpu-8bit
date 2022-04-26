@@ -12,9 +12,9 @@ int main()
     std::bitset<8> a(8);
     std::bitset<8> b(-2);
     /*std::bitset<8> c = ~(a&b);*/
-    std::cout << a <<std::endl;
+    std::cout << bool(a == 0) <<std::endl;
     Cpu cpu;
-    std::cout << cpu.run(a) << std::endl;
+    std::cout << cpu.run(a, true) << std::endl;
     //std::cout << b << std::endl;
     //std::cout << alu.run(inst,a,b)  << std::endl;
 }

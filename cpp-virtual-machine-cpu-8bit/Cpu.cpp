@@ -5,19 +5,49 @@
 #include <algorithm>
 #include <iostream>
 
-stream Cpu::run(stream inputValue) {
+stream Cpu::run(stream inputValue, bool debugMode) {
 	this->input = inputValue;
 	std::ifstream configFile;
-	std::string s = "Program.txt";
+	std::string fileName = "Program.txt";
 	std::string content;
-	configFile.open(s);
-	int sizeOfStream = inputValue.size() + 2;
+	configFile.open(fileName);
+	int sizeOfStream = inputValue.size() + 2; // stream length(8) + length of "/n"(2) = 10
 	while (getline(configFile, content)) {
 		int counterIntValue = Utils::binaryToInt(this->counter);
 		this->counter = Utils::streamAdd(this->counter, 1);
 
 		stream currentCommand = Utils::stringToStream(content);
-		Cpu::move(currentCommand);
+
+		int instructionCode = Utils::decoder3bit(currentCommand[6], currentCommand[7], 0);
+		switch (instructionCode)
+		{
+		case 0: {
+			this->r0 = currentCommand;
+			break;
+		}
+		case 1: {
+			this->r3 = alu.run(currentCommand,this->r1,this->r2);
+			break;
+		}
+		case 2: {
+			Cpu::move(currentCommand);
+			break;
+		}
+		case 3: {
+			if (cond.run(currentCommand, r3)) {
+				this->counter = this->r0;
+			}
+			break;
+		}
+		}
+		
+
+		if (debugMode) 
+		{
+			Cpu::printRegisters();
+		}
+
+		// Set index for configFile reading
 		configFile.seekg((counterIntValue+1)*sizeOfStream);
 	}
 
@@ -29,7 +59,6 @@ void Cpu::move(stream value) {
 
 	int destinationCode = Utils::decoder3bit(value[0], value[1], value[2]);
 	int sourceCode = Utils::decoder3bit(value[3], value[4], value[5]);
-
 	switch (sourceCode)
 	{
 		case 0: {
@@ -57,10 +86,6 @@ void Cpu::move(stream value) {
 			break;
 		}
 		case 6: {
-			source = this->r6;
-			break;
-		}
-		case 7: {
 			source = this->input;
 			break;
 		}
@@ -93,12 +118,19 @@ void Cpu::move(stream value) {
 			break;
 		}
 		case 6: {
-			this->r6 = source;
-			break;
-		}
-		case 7: {
 			this->output = source;
 			break;
 		}
 	}
+}
+
+void Cpu::printRegisters() {
+	std::cout << "in: " << this->input << std::endl;
+	std::cout << "r0: " << this->r0 << std::endl;
+	std::cout << "r1: " << this->r1 << std::endl;
+	std::cout << "r2: " << this->r2 << std::endl;
+	std::cout << "r3: " << this->r3 << std::endl;
+	std::cout << "r4: " << this->r4 << std::endl;
+	std::cout << "r5: " << this->r5 << std::endl;
+	std::cout << "out: " << this->output << std::endl << std::endl;
 }

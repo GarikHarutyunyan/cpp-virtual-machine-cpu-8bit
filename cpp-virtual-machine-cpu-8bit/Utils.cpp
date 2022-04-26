@@ -54,7 +54,7 @@ int Utils::decoder3bit(bool value1, bool value2, bool value3)
 			}
 			else {
 				// 000
-				return 2;
+				return 0;
 			}
 		}
 	}

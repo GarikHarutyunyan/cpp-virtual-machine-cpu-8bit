@@ -6,15 +6,18 @@
 #include <istream>
 #include <fstream>
 #include "Alu.h"
+#include "Cond.h"
 
 
 class Cpu {
 	public:
-		stream run(stream);
+		stream run(stream, bool);
 
 	private:
-		stream input, r0, r1, r2, r3, r4, r5, r6, output, counter = 0;
+		void printRegisters();
+		stream input, r0, r1, r2, r3, r4, r5, output, counter = 0;
 		Alu alu;
+		Cond cond;
 		void move(stream);
 };
 

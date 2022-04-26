@@ -22,6 +22,9 @@
     <Filter Include="Source Files\CPU">
       <UniqueIdentifier>{d1e20bfd-7793-4f4b-87e1-0db3aa08d9eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Cond">
+      <UniqueIdentifier>{ba09ac35-2897-4522-b06f-bda74e73e099}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp-virtual-machine-cpu-8bit.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="Cpu.cpp">
       <Filter>Source Files\CPU</Filter>
     </ClCompile>
+    <ClCompile Include="Cond.cpp">
+      <Filter>Source Files\Cond</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alu.h">
@@ -49,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="Cpu.h">
       <Filter>Source Files\CPU</Filter>
+    </ClInclude>
+    <ClInclude Include="Cond.h">
+      <Filter>Source Files\Cond</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

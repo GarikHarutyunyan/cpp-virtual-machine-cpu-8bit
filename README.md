@@ -24,6 +24,7 @@ First two bits show the type of action - XX******
 10****** - Copy from one register to another
   The next 6 bites show the source and destination registers,
   First 3 bits show the source resgiter
+  ```
   10000*** - r0
   10001*** - r1
   10010*** - r2
@@ -31,8 +32,10 @@ First two bits show the type of action - XX******
   10100*** - r4
   10101*** - r5
   10110*** - input
+  ```
   
-  First 3 bits show the destination resgiter
+  Last 3 bits show the destination resgiter
+  ```
   10***000 - r0
   10***001 - r1
   10***010 - r2
@@ -40,9 +43,10 @@ First two bits show the type of action - XX******
   10***100 - r4
   10***101 - r5
   10***110 - output
-  
+  ```
 11****** - Conditional operations (Never, =0, <0, <=0, Always true, !=0, >=0, >0), if the condition is true the value from r0 register will be coppied in Counter as a next operation index.
   The last 3 bits show the condition
+  ```
   11***000 = Never
   11***001 = Reg 3 = 0
   11***010 = Reg 3 < 0
@@ -50,3 +54,4 @@ First two bits show the type of action - XX******
   11***100 = Always
   11***101 = Reg 3 >= 0
   11***110 = Reg 3 > 0
+  ```

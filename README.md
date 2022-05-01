@@ -12,12 +12,14 @@ First two bits show the type of action - XX******
   
 01****** - Arithmetical and Logical operations(AND, NAND, OR, NOR, ADD, SUB)
   The last 3 bits show which insturction must be done between r1 and r2, the result is saved on r3 
+  ```
   01***000 - OR
   01***001 - NAND
   01***010 - NOR
   01***011 - AND
   01***100 - ADD
   01***100 - SUB
+  ```
   
 10****** - Copy from one register to another
   The next 6 bites show the source and destination registers,

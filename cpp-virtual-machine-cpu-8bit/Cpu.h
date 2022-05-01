@@ -11,7 +11,7 @@
 
 class Cpu {
 	public:
-		stream run(stream, bool);
+		stream run(stream, bool = false);
 
 	private:
 		void printRegisters();

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "common.h"
 #include "Utils.h"
 #include "Alu.h"
@@ -7,14 +8,11 @@
 int main()
 {
     Alu alu;
-
-    std::bitset<8> inst("00000101");
-    std::bitset<8> a(8);
-    std::bitset<8> b(-2);
-    /*std::bitset<8> c = ~(a&b);*/
-    std::cout << bool(a == 0) <<std::endl;
     Cpu cpu;
-    std::cout << cpu.run(a, true) << std::endl;
-    //std::cout << b << std::endl;
-    //std::cout << alu.run(inst,a,b)  << std::endl;
+    std::string m;
+    std::bitset<8> a;
+    std::cout << "Enter input value(number): ";
+    std::cin >> m;
+    a = std::stoi(m);
+    std::cout << "Input * 6 = " << Utils::binaryToInt(cpu.run(a)) << std::endl;
 }
